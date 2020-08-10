@@ -1,1 +1,17 @@
-<div>hello</div>
+{{#each articles}}
+<a href={{link}}>
+    <h5>
+        {{title}}
+    </h5>
+</a>
+<p>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse{{_id}}" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Notes</button>
+</p>
+    <div class="collapse multi-collapse{{_id}} col-4" id="multiCollapseExample1">
+      <input type="text" name="title" id="title-{{_id}}" class="form-control" placeholder="Title">
+    </div>
+    <div class="collapse multi-collapse{{_id}} col-4" id="multiCollapseExample2">
+      <textarea type="text" name="note" id="note-{{_id}}" class="form-control" placeholder="Note"></textarea>
+    </div>
+<br>
+{{/each}}
