@@ -4,14 +4,15 @@ var cheerio = require("cheerio");
 
 module.exports = function (app) {
     app.get("/scrape", function (req, res) {
-        axios.get("https://www.theonion.com/").then(function (response) {
+        
+        axios.get("https://www.huffpost.com/news/world-news").then(function (response) {
             var $ = cheerio.load(response.data);
-
-            $("article div").each(function (i, element) {
+            $("div.card").each(function (i, element) {
                 var result = {};
-
-                result.title = $(this).children("a").text();
+                console.log("ready to scrape")
+                result.title = $(this).find("h2").text();
                 result.link = $(this).children("a").attr("href");
+                result.description = $(this).find("div.card__description").text();
 
                 if (result.title && result.link) {
                     db.Article.update(result, result, {upsert: true})
@@ -23,7 +24,7 @@ module.exports = function (app) {
                         });
                 }
             })
-            res.send("Scrape Complete")
+            res.redirect('back');
         })
     })
 }

@@ -1,0 +1,16 @@
+.jumbotron {
+    background-image: url(/assets/img/handscraped-hardwood.jpg);
+    color: white;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 8px solid black;
+}
+
+body {
+    background-image: url(/assets/img/woodbackgroundrotated.jpg);
+    background-size: contain;
+}
+
+a {
+    color: black;
+}

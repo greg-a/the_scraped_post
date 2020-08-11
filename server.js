@@ -10,7 +10,7 @@ var app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
+app.use(express.static("public"));
 // var MONGODB_URI = process.env.MONGODB_URI || ("mongodb://user:password123@ds263248.mlab.com:63248/heroku_zmpvt4ml", { useNewURLParser: true });
 
 // mongoose.connect(MONGODB_URI);
