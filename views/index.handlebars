@@ -19,11 +19,21 @@
         <div class="collapse multi-collapse{{_id}} col-4 pl-0" id="multiCollapseExample2-{{_id}}">
             <textarea type="text" name="note" id="note-{{_id}}" class="form-control" placeholder="Note"></textarea>
         </div>
+        <div class="error">
+            <div class="alert alert-danger alert-{{_id}}" role="alert" style="display: none;">
+                Make sure you filled in Title and Note section!
+            </div>
+        </div>
         <p>
             <button class="btn btn-primary note-btn" type="button" data-toggle="collapse"
                 data-target=".multi-collapse{{_id}}" aria-expanded="false"
-                aria-controls="multiCollapseExample1-{{_id}} multiCollapseExample2-{{_id}}" data-id={{_id}}>Notes</button>
-                <span id="close-{{_id}}"></span>
+                aria-controls="multiCollapseExample1-{{_id}} multiCollapseExample2-{{_id}}" data-id={{_id}}
+                id="note-btn-{{_id}}">Notes</button>
+            <button class="btn btn-primary btn-danger note-btn close-{{_id}}" type="button" data-toggle="collapse"
+                data-target=".multi-collapse{{_id}}" aria-expanded="false"
+                aria-controls="multiCollapseExample1-{{_id}} multiCollapseExample2-{{_id}}" data-id={{_id}}
+                style="display: none" id="close-btn-{{_id}}">Close</button>
+
         </p>
     </div>
     {{/each}}
