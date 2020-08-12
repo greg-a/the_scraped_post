@@ -1,28 +1,26 @@
 <div class="jumbotron">
+    <div class="title-container col-xs-3 ml-4">
     <h1 class="display-4">The Scraped Post</h1>
-    <p class="lead">Add your notes to all the latest articles.</p>
+    <p class="lead">Find the latest articles and add your custom notes.</p>
+    </div>
     <hr class="my-4">
-    <a class="btn btn-primary btn-lg" href="/scrape" role="button" id="scrape-btn">Update Articles</a>
+    <a class="btn btn-primary btn-lg mr-5" href="/scrape" role="button" id="scrape-btn">Update Articles</a>
 </div>
 <div class="container col-11">
     {{#each articles}}
-    <div class="article-container">
+    <div class="article-container card">
+        <div class="card-body">
         <a href={{link}}>
-            <h5>
+            <h4 class="card-title">
                 {{title}}
-            </h5>
+            </h4>
         </a>
-        <p>{{description}}</p>
-        <div class="collapse multi-collapse{{_id}} col-4 pl-0" id="multiCollapseExample1-{{_id}}">
+        <p class="card-text">{{description}}</p>
+        <div class="collapse multi-collapse{{_id}} col-lg-6 pl-0" id="multiCollapseExample1-{{_id}}">
             <input type="text" name="title" id="title-{{_id}}" class="form-control" placeholder="Title">
         </div>
-        <div class="collapse multi-collapse{{_id}} col-4 pl-0" id="multiCollapseExample2-{{_id}}">
+        <div class="collapse multi-collapse{{_id}} col-lg-6 pl-0" id="multiCollapseExample2-{{_id}}">
             <textarea type="text" name="note" id="note-{{_id}}" class="form-control" placeholder="Note"></textarea>
-        </div>
-        <div class="error">
-            <div class="alert alert-danger alert-{{_id}}" role="alert" style="display: none;">
-                Make sure you filled in Title and Note section!
-            </div>
         </div>
         <p>
             <button class="btn btn-primary note-btn" type="button" data-toggle="collapse"
@@ -35,6 +33,7 @@
                 style="display: none" id="close-btn-{{_id}}">Close</button>
 
         </p>
+        </div>
     </div>
     {{/each}}
 </div>

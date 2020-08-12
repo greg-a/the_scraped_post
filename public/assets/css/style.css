@@ -1,3 +1,14 @@
+body {
+    background-image: url(/assets/img/woodbackgroundrotated.jpg);
+    background-size: contain;
+    font-family: 'Oxygen', sans-serif;
+}
+
+a {
+    color: black;
+    display: inline-block
+}
+
 .jumbotron {
     background-image: url(/assets/img/handscraped-hardwood.jpg);
     color: white;
@@ -6,11 +17,35 @@
     border-bottom: 8px solid black;
 }
 
-body {
-    background-image: url(/assets/img/woodbackgroundrotated.jpg);
-    background-size: contain;
+.jumbotron h1 {
+    font-family: 'Recursive', sans-serif;
 }
 
-a {
+.jumbotron p {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.container {
+    height: 100%;
+}
+
+.title-container {
+    background-color: white;
+    border-radius: 60px;
     color: black;
+    overflow: hidden;
+    width: 345px;
+    text-align: center;
+    padding: 17px;
+    background-image: url(/assets/img/natural_paper.png)
+}
+
+.jumbotron {
+    display: flex;
+    align-items: last baseline;
+}
+
+.card {
+    border-radius: 10px;
+    background-image: url(/assets/img/natural_paper.png)
 }
