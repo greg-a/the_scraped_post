@@ -1,7 +1,7 @@
 <div class="jumbotron">
     <div class="title-container col-xs-3 ml-4">
-    <h1 class="display-4">The Scraped Post</h1>
-    <p class="lead">Find the latest articles and add your custom notes.</p>
+        <h1 class="display-4">The Scraped Post</h1>
+        <p class="lead">Find the latest articles and add your custom notes.</p>
     </div>
     <hr class="my-4">
     <a class="btn btn-primary btn-lg mr-5" href="/scrape" role="button" id="scrape-btn">Update Articles</a>
@@ -10,29 +10,52 @@
     {{#each articles}}
     <div class="article-container card">
         <div class="card-body">
-        <a href={{link}}>
-            <h4 class="card-title">
-                {{title}}
-            </h4>
-        </a>
-        <p class="card-text">{{description}}</p>
-        <div class="collapse multi-collapse{{_id}} col-lg-6 pl-0" id="multiCollapseExample1-{{_id}}">
-            <input type="text" name="title" id="title-{{_id}}" class="form-control" placeholder="Title">
-        </div>
-        <div class="collapse multi-collapse{{_id}} col-lg-6 pl-0" id="multiCollapseExample2-{{_id}}">
-            <textarea type="text" name="note" id="note-{{_id}}" class="form-control" placeholder="Note"></textarea>
-        </div>
-        <p>
+            <a href={{link}} target="_blank">
+                <h4 class="card-title">
+                    {{title}}
+                </h4>
+            </a>
+            <p class="card-text">{{description}}</p>
+            <div class="collapse new-note-collapse-{{_id}} note-form col-lg-6 pl-0" id="new-note-{{_id}}">
+                <input type="text" name="title" id="title-{{_id}}" class="form-control" placeholder="Title">
+                <textarea type="text" name="note" id="note-{{_id}}" class="form-control" placeholder="Note"></textarea>
+            </div>
+            <div class="collapse all-notes-collapse-{{_id}} all-notes col-lg-6 pl-0" id="new-note-{{_id}}">
+                {{#each note}}
+                <div class="accordion" id="accordion-{{_id}}">
+                    <div class="card">
+                        <div class="card-header" id="heading-{{_id}}">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                    data-toggle="collapse" data-target="#collapseTwo-{{_id}}" aria-expanded="false"
+                                    aria-controls="collapseTwo-{{_id}}">
+                                    {{title}}
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo-{{_id}}" class="collapse" aria-labelledby="heading-{{_id}}"
+                            data-parent="#accordion-{{_id}}">
+                            <div class="card-body">
+                                {{note}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
             <button class="btn btn-primary note-btn" type="button" data-toggle="collapse"
-                data-target=".multi-collapse{{_id}}" aria-expanded="false"
-                aria-controls="multiCollapseExample1-{{_id}} multiCollapseExample2-{{_id}}" data-id={{_id}}
-                id="note-btn-{{_id}}">Notes</button>
-            <button class="btn btn-primary btn-danger note-btn close-{{_id}}" type="button" data-toggle="collapse"
-                data-target=".multi-collapse{{_id}}" aria-expanded="false"
-                aria-controls="multiCollapseExample1-{{_id}} multiCollapseExample2-{{_id}}" data-id={{_id}}
-                style="display: none" id="close-btn-{{_id}}">Close</button>
+                data-target=".new-note-collapse-{{_id}}" aria-expanded="false" aria-controls="new-note-{{_id}}"
+                data-id={{_id}} id="note-btn-{{_id}}">Create New Note</button>
+            {{#if note.length}}
+            <button class="btn btn-primary btn-secondary" type="button" data-toggle="collapse"
+                data-target=".all-notes-collapse-{{_id}}" aria-expanded="false"
+                aria-controls="multiCollapseExample1-{{_id}}" data-id={{_id}} id="all-notes-{{_id}}">View All Notes</button>
+            {{/if}}
+            <button class="btn btn-primary btn-danger note-btn" type="button" data-toggle="collapse"
+                data-target=".new-note-collapse-{{_id}}" aria-expanded="false" aria-controls="new-note-{{_id}}"
+                data-id={{_id}} style="display: none;" id="close-btn-{{_id}}">Close</button>
 
-        </p>
+            </p>
         </div>
     </div>
     {{/each}}
