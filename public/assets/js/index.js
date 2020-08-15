@@ -73,3 +73,15 @@ $(document).on("click", ".btn-secondary", function(event){
         $(this).text("View All Notes");
     }
 })
+
+$(document).on("click", ".delete-note", function(event) {
+    var thisId = $(this).attr("data-id");
+
+    $.ajax({
+        type: "GET",
+        url: "/delete/" + thisId,
+        success: function(response) {
+            $("#accordion-" + thisId).remove()
+        }
+    })
+})

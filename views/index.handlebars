@@ -4,7 +4,7 @@
         <p class="lead">Find the latest articles and add your custom notes.</p>
     </div>
     <hr class="my-4">
-    <a class="btn btn-primary btn-lg mr-5" href="/scrape" role="button" id="scrape-btn">Update Articles</a>
+    <a class="btn btn-primary btn-lg mr-5" href="/" role="button" id="scrape-btn">Update Articles</a>
 </div>
 <div class="container col-11">
     {{#each articles}}
@@ -24,14 +24,17 @@
                 {{#each note}}
                 <div class="accordion" id="accordion-{{_id}}">
                     <div class="card">
-                        <div class="card-header" id="heading-{{_id}}">
-                            <h2 class="mb-0">
+                        <div class="card-header row" id="heading-{{_id}}">
+                            <h2 class="mb-0 col-md-11">
                                 <button class="btn btn-link btn-block text-left collapsed" type="button"
                                     data-toggle="collapse" data-target="#collapseTwo-{{_id}}" aria-expanded="false"
                                     aria-controls="collapseTwo-{{_id}}">
                                     {{title}}
                                 </button>
                             </h2>
+                            <button type="button" class="close delete-note col-md-1" aria-label="Close" data-id={{_id}}>
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         <div id="collapseTwo-{{_id}}" class="collapse" aria-labelledby="heading-{{_id}}"
                             data-parent="#accordion-{{_id}}">
@@ -49,7 +52,8 @@
             {{#if note.length}}
             <button class="btn btn-primary btn-secondary" type="button" data-toggle="collapse"
                 data-target=".all-notes-collapse-{{_id}}" aria-expanded="false"
-                aria-controls="multiCollapseExample1-{{_id}}" data-id={{_id}} id="all-notes-{{_id}}">View All Notes</button>
+                aria-controls="multiCollapseExample1-{{_id}}" data-id={{_id}} id="all-notes-{{_id}}">View All
+                Notes</button>
             {{/if}}
             <button class="btn btn-primary btn-danger note-btn" type="button" data-toggle="collapse"
                 data-target=".new-note-collapse-{{_id}}" aria-expanded="false" aria-controls="new-note-{{_id}}"

@@ -47,5 +47,6 @@ a {
 
 .card {
     border-radius: 10px;
-    background-image: url(/assets/img/natural_paper.png)
+    background-image: url(/assets/img/natural_paper.png);
+    overflow: hidden;
 }
