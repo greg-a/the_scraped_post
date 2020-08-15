@@ -1,5 +1,5 @@
 body {
-    background-image: url(/assets/img/woodbackgroundrotated.jpg);
+    background-image: url(../assets/img/woodbackgroundrotated.jpg);
     background-size: contain;
     font-family: 'Oxygen', sans-serif;
 }
