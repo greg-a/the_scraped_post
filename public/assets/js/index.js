@@ -62,7 +62,7 @@ $(document).on("click", ".note-btn", function (event) {
 $(document).on("click", ".btn-secondary", function(event){
     var thisId = $(this).attr("data-id");
     var btnText = $(this).text();
-
+    console.log(btnText);
     if (btnText === "View All Notes") {
         $(this).text("Close All Notes");
         $(".note-form").removeClass("show");
