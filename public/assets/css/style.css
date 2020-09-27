@@ -34,9 +34,9 @@ a {
     border-radius: 60px;
     color: black;
     overflow: hidden;
-    width: 345px;
+    /* width: 345px; */
     text-align: center;
-    padding: 17px;
+    /* padding: 17px; */
     background-image: url(/assets/img/natural_paper.png)
 }
 
